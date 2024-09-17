@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-4').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M03</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual_gnius')">
+        <div class="title">
+            <span>📚 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Introducción y bienvenida a la clase</div>
+    </div>
+    <div id="saludo_ritual_gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Gnius Club".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, hoy nos sumergimos en algo nuevo y emocionante. Vamos a explorar una herramienta que les permitirá transformar sus ideas en modelos 3D reales.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 3 "¿Cómo están?".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de comenzar, quiero saber cómo se sienten hoy. Si están listos para aprender algo nuevo, toquen con el dedo índice su nariz. Si prefieren tomarse un respiro, sujeten ambas orejas con las manos y respiren profundamente. Vamos a ver cómo estamos para arrancar.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Como siempre, tomemos un momento para agradecer estar aquí. Juntemos las manos y digamos "Gracias". Esto nos ayuda a enfocarnos y estar presentes en la misión de hoy.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy tenemos tres objetivos clave: <br> 1. Crear sus cuentas en Tinkercad. <br> 2. Navegar por la interfaz de Tinkercad y familiarizarse con sus herramientas. <br> 3. Aprender a mover la vista, colocar, manipular y transformar formas en la plataforma.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (4 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">
+            <span>📚 Actividad 2: Innovación del Día (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Introducción a una herramienta innovadora</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Innovación del Día".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de sumergirnos en Tinkercad, quiero mostrarles algo interesante. Hoy vamos a conocer una herramienta que ha revolucionado la manera en que diseñamos y creamos prototipos, tanto para principiantes como para profesionales.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 7 "La Innovación: Gravity Sketch".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La herramienta de hoy es Gravity Sketch, una aplicación de realidad virtual que permite diseñar en 3D de una manera completamente inmersiva. Aunque es avanzada, está cambiando la forma en que diseñadores y artistas visualizan sus ideas.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 8 "Video de Gravity Sketch".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a ver un breve video que muestra cómo Gravity Sketch permite a los usuarios esculpir y diseñar en un espacio 3D usando solo sus manos y un visor de realidad virtual.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 9 "Reflexión sobre la Innovación".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Este tipo de herramientas nos muestran hacia dónde va el futuro del diseño. Mientras aprendemos a usar Tinkercad hoy, piensen en cómo podríamos aplicar estas ideas en plataformas más avanzadas en el futuro.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (11 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">
+            <span>📚 Actividad 3: Brain Gym (11 pasos)</span>
+            <span>⏰ Tiempo: 21.5 minutos</span>
+        </div>
+        <div class="subtitle">Exploración y práctica con Tinkercad</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 10 "Introducción a Tinkercad".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que conocemos un poco sobre el diseño 3D, es momento de entrar en acción. Pongan atención porque dentro de lo que voy a explicar hay un Easter Egg. Al final de la clase voy a lanzar una pregunta y quien la responda, ganará mon-e. Hoy vamos a explorar Tinkercad, una plataforma que les permitirá convertir sus ideas en modelos 3D reales. Tinkercad es ideal para dar nuestros primeros pasos en el diseño 3D.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 11 "Registro en Tinkercad".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Lo primero que necesitamos hacer es crear nuestras cuentas. Entren a www.tinkercad.com y hagan clic en "Crea una cuenta personal". Vamos a registrarnos usando nuestras cuentas de Google para hacerlo rápido y fácil. Si alguno no tiene cuenta de Google, pueden registrarse con su correo. Tómense un momento para hacer esto y asegúrense de estar listos antes de seguir adelante.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 12 "Accediendo al Dashboard".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Una vez que estén dentro, verán un tutorial en la pantalla. Si quieren explorarlo después, pueden seguirlo, pero ahora necesitamos llegar al Dashboard. Para hacerlo, hagan clic en el logo de Tinkercad en la esquina superior izquierda. Esto los llevará a su Dashboard, donde podrán ver sus proyectos y configurar su perfil. El término en español para referirse al Dashboard es "Tablero", y la palabra Dashboard tiene su origen en la industria automotriz. ¿Han visto los instrumentos que se encuentran frente al piloto, como velocímetro o medidor de nivel de gasolina? El dashboard es un tablero donde puedes ver la información general necesaria del coche a través de herramientas. Y antes de eso el Dashboard fue simplemente una tabla que se colocaba frente al conductor para evitar que los caballos lo salpicaran. Conforme fue avanzando la tecnología, los desarrolladores de programas y aplicaciones trajeron el término para referirse a la pantalla donde podías ver el resumen de todo lo que hay en la aplicación.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 13 "Explorando la Interfaz".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que están en el Dashboard, es momento de explorar la interfaz de Tinkercad. Aquí tienen el "Plano de trabajo", que es donde diseñarán. La "Barra de opciones" está en la parte superior con herramientas importantes como copiar, pegar, deshacer y rehacer. A la derecha, encontrarán un panel con "Formas básicas" que pueden arrastrar al plano de trabajo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (3 minutos): Proyectar Diapositiva 14 "Manipulación de la Vista".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">En Tinkercad, es importante ver el modelo desde diferentes ángulos. Para hacerlo, usen el cubo de vista en la parte superior izquierda del editor. Hagan clic y arrastren el cubo en cualquier dirección para rotar la vista. También pueden hacer zoom usando la rueda del ratón o los botones de "+" y "-" a la izquierda de la pantalla.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (3 minutos): Proyectar Diapositiva 15 "Uso del Mouse y Teclado".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Otra forma de mover la vista es haciendo clic derecho y arrastrando en cualquier parte del plano de trabajo. Si usan el clic izquierdo combinado con la tecla "CTRL", también pueden ajustar la vista. Practiquen estos movimientos para familiarizarse con la navegación.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (3 minutos): Proyectar Diapositiva 16 "Manipulación de Formas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a aprender a manipular y transformar formas. Para ello, arrastren un cubo desde el panel de "Formas básicas" al plano de trabajo. Verán cuadrados blancos y negros alrededor del cubo que les permitirán cambiar su tamaño y orientación.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (3 minutos): Proyectar Diapositiva 17 "Moviendo y Girando Objetos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora vamos a mover y girar nuestro cubo. Pueden arrastrarlo directamente en el plano de trabajo usando el ratón, o utilizar las flechas para moverlo en el plano XY y la flecha negra para moverlo en el eje Z. Para girar el cubo, hagan clic en las flechas curvas y arrastren para rotarlo en cualquier eje.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (3 minutos): Proyectar Diapositiva 18 "Cambiando el Tamaño de los Objetos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para cambiar el tamaño de cualquier objeto, hagan clic en los cuadrados blancos o negros y arrastren hasta obtener las dimensiones deseadas. La rejilla de trabajo les mostrará las medidas en milímetros para que puedan ser precisos en sus diseños.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (3 minutos): Proyectar Diapositiva 19 "Eliminando Objetos y Panel de Propiedades".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Si necesitan eliminar un objeto, solo selecciónenlo y presionen la tecla "Supr". También pueden usar el botón "Eliminar" en la barra de opciones. El panel de propiedades les permitirá ajustar detalles como la altura, el ancho y la longitud del objeto seleccionado.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 11 (2 minutos): Proyectar Diapositiva 20 "Conclusión del Brain Gym".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">No se preocupen si no tienen la máxima destreza para moverse en la plataforma en este momento. ¿Han escuchado alguna vez la frase: "La práctica hace al maestro"? Tinkercad es una herramienta que se domina con mucha práctica, y práctica es lo que más vamos a estar haciendo a lo largo de esta aventura llamada Diseño 3D.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (4 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">
+            <span>💫 Actividad 4: State Change (4 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Activación rápida con "Manos Mágicas"</div>
+    </div>
+    <div id="state_change" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 21 "Manos Mágicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de continuar, vamos a hacer una actividad rápida llamada "Manos Mágicas". Esto nos ayudará a relajar la vista y a mejorar nuestra concentración para la siguiente parte de la misión.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 22 "Frota tus Manos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Todos, froten sus manos rápidamente, como si estuvieran tratando de calentarlas. Continúen frotando hasta que sientan calor en las palmas. Este calor es energía que estamos generando y que nos va a ayudar a relajar nuestra vista.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 23 "Relajación".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, detengan el frotamiento y coloquen suavemente sus manos calientes sobre sus ojos cerrados. Sientan cómo el calor relaja la tensión en sus ojos, ayudándolos a descansar y enfocarse mejor. Manténganlas ahí por unos segundos, respiren profundamente y dejen que la calma los invada.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 24 "Concentración".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Retiren sus manos lentamente, abran los ojos y sientan la diferencia. Notarán que sus ojos están más relajados y su mente más enfocada. Están listos para concentrarse en lo que sigue.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">
+            <span>🧑‍🤝‍🧑 Actividad 5: Team Gnius (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Formación de Equipos</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 25 "Formación de Equipos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que hemos relajado nuestra mente y nuestros ojos, es momento de trabajar en parejas. Vamos a formar equipos de dos personas para el reto que sigue. Busquen a alguien con quien les gustaría trabajar y formen su equipo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 26 "Organización en Parejas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tienen 30 segundos para encontrar a su compañero de equipo. Cuando lo hagan, levanten la mano para que pueda ver que están listos. Recuerden que el trabajo en equipo es clave para superar el reto de hoy.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 27 "Listos para el Reto".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Muy bien, ahora que están en parejas, están listos para el siguiente reto. Trabajar en equipo les permitirá compartir ideas y encontrar soluciones creativas. Vamos a seguir adelante con la misión.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (6 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>🏰 Actividad 6: Challenge (6 pasos)</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">El Desafío: Diseñar un Castillo</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 28 "El Desafío".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que ya conocen cómo manipular formas en Tinkercad, es momento de poner en práctica lo aprendido. El desafío de hoy es diseñar un castillo usando al menos 14 formas. Tienen total libertad creativa para decidir cómo quieren que se vea su castillo. ¡Dejen volar su imaginación!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 29 "Ejemplo de Castillo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Sé que a veces empezar desde cero puede ser difícil, así que les voy a mostrar un castillo que diseñé yo mismo. Esto es solo una inspiración, no tienen que hacerlo igual. Recuerden que su creatividad es lo más importante en este reto.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 30 "Instrucciones del Desafío".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden que deben usar al menos 14 formas diferentes para construir su castillo. No importa si son cubos, conos, o cualquier otro elemento, mientras sumen 14 formas, recuerden que podemos modificar las formas así que jueguen con controles para ver cómo pueden transformar sus elementos. Tienen 5 minutos para trabajar en esto, así que aprovechen bien el tiempo. ¡Manos a la obra!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (5 minutos): Proyectar Diapositiva 31 "Tiempo de Creación".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Vamos a empezar. Tienen 5 minutos para diseñar su castillo. Recuerden que la colaboración con su compañero es clave para que su castillo sea único.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 32 "Conclusión del Desafío".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Tiempo! Es momento de detenerse y ver lo que han logrado. Estoy seguro de que cada castillo es único y creativo. Tómense 1 minuto para compartir su castillo con el equipo que tengan a un lado.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (0.5 minutos): Proyectar Diapositiva 33 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy logramos tres cosas importantes: <br> 1. Crear sus cuentas en Tinkercad. <br> 2. Navegar por la interfaz de Tinkercad y familiarizarse con sus herramientas. <br> 3. Aprender a mover la vista, colocar, manipular y transformar formas en la plataforma. ¡Buen trabajo, Genios!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 7 (3 pasos) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter-egg')">
+        <div class="title">
+            <span>🥚 Actividad 7: Easter Egg (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Momento de Easter Egg</div>
+    </div>
+    <div id="easter-egg" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 34 "Momento de Easter Egg".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Es momento de ver quién ha estado realmente atento. Les tengo una pregunta relacionada con algo que vimos hoy. Voy a premiar con Mon-e a las tres primeras personas que me den la respuesta correcta. Aquí está la dinámica: en cuanto pase a la siguiente diapositiva, lean la pregunta. Si saben la respuesta, levanten la mano. No la digan en voz alta, solo levanten la mano y yo elegiré a tres de ustedes para que me la digan en privado. ¿Listos?</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 35 "La Pregunta".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Aquí vamos, uno, dos, tres... lean la pregunta y si saben la respuesta, levanten la mano. Ahora tú, ven y dime la respuesta al oído... Ahora el segundo... Y finalmente el tercero. Muy bien, vamos a ver si alguien acertó.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 36 "Respuesta Correcta".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La respuesta correcta es que la palabra "Dashboard" originalmente se refería a un tablero en los carruajes de caballos que evitaba que el barro salpicara al conductor. ¡Felicidades a los que acertaron, se llevan su Mon-e!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>🏆 Actividad 8: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 1 minuto</span>
+        </div>
+        <div class="subtitle">Recogida y cierre de la clase</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 37 y reproducir la animación de honor de dojo.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden cerrar sus sillas, recoger sus cosas y acomodar el laboratorio para que pueda recibir la siguiente tanda de genios. ¡Gran trabajo hoy, genios! Gracias por su esfuerzo y dedicación, y recuerden siempre cuidar nuestro espacio de aprendizaje. ¡Nos vemos en la próxima misión!</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
